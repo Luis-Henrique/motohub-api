@@ -138,3 +138,8 @@ def delete_push_token(token_id: str):
     if len(TOKENS) == before:
         raise HTTPException(status_code=404, detail="Token não encontrado")
     return {"ok": True}
+
+@app.get("/")
+def root():
+    return {"status": "ok", "docs": "/docs", "openapi": "/openapi.json"}
+
